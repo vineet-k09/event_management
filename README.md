@@ -1,7 +1,6 @@
 # Campus Event Organizer 
 
-## Getting Started
-The techstack
+## The techstack
 
 | Layer        | Technology                 | Purpose                                                                 |
 |--------------|----------------------------|-------------------------------------------------------------------------|
@@ -12,6 +11,8 @@ The techstack
 | **ORM**      | [Prisma](https://www.prisma.io/)            | Type-safe ORM for database modeling and querying                        |
 | **Runtime**  | [Node.js](https://nodejs.org/)              | JavaScript runtime for executing the Next.js app                        |
 | **Package Manager** | [npm](https://www.npmjs.com/) | Dependency management and scripts |
+
+(Table layout is AI generated)
 
 ---
 
@@ -101,8 +102,10 @@ Conditionally the following situations were portrayed -
 - If not registered -> render Register button
 - If not registered -> post event date already -> Registration Over
 
-***IMPORTANT:*** The ```user.role = "ADMIN"``` was used as the deciding factor if the user can change attendance or not, thus every event, irrespective of user specific university can be changed by the user. 
-### The above is not an ideal method, instead the ```user.id``` is matched with ```event.user.id``` to conditionally allow managing attendance
+***IMPORTANT:*** The ```user.role = "ADMIN"``` was used as the deciding factor if the user can change attendance or not, thus every event, irrespective of user specific university can be changed by the user. <br />
+The above is not an ideal method, instead the ```user.id``` is matched with ```event.user.id``` to conditionally allow managing attendance
+
+---
 
 ### Attendance
 <img src="screenshots/5.png" alt="attendecce" />
@@ -113,8 +116,10 @@ This page mainly uses POST methods mapped with ```registration.user.id``` each r
 const params = useParams();
 const eventId = params.id;
 ```
-The above let's us use the ```attendees/[id]/page.tsx``` browser route, allowing us to dynamically change the content of the page based on the event id passed
+The above let's us use the ```attendees/[id]/page.tsx``` browser route, allowing us to dynamically change the content of the page based on the event id passed. <br />
 ***Note:*** This, along with many other, page are ```user.id``` and ```user.role``` specific while its not asserted in this application, it's necessary to take care of loose ends, preventing user from accessing open end points.
+
+---
 
 ## IMPORTANT
 - ### ```.env``` is uploaded for the sole purpose of functionality, as the website is not going to be deployed.
@@ -126,6 +131,7 @@ npm run i
 - ### In case of database error, check the [DB.md](prisma/DB.md) here.
 
 ---
+
 <div align="center">
-&#123;&#125; with ♡ by <a href="https://github.com/vineet-k09">Vineet</a>.
+&#123; &#125; with ♡ by <a href="https://github.com/vineet-k09">Vineet</a>.
 </div>
