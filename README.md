@@ -126,5 +126,6 @@ npm run i
 - ### In case of database error, check the [DB.md](prisma/DB.md) here.
 
 ---
-
+<div align="center">
 &#123;&#125; with ♡ by <a href="https://github.com/vineet-k09">Vineet</a>.
+</div>
