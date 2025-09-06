@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// University
+model University {
+  id    Int     @id @default(autoincrement())
+  name  String
+  location String?
+
+  users  User[]
+  events Event[]
+}
+
+// Users
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  createdAt DateTime  @default(now())
+
+  // relations
+  universityId Int
+  university   University @relation(fields: [universityId], references: [id])
+
+  role   Role @default(STUDENT)
+
+  registrations Registration[]
+  eventsCreated Event[] @relation("EventCreator") // admin only
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+}
+
+
+// Events
+model Event {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String?
+  date        DateTime
+  status      EventStatus @default(ACTIVE)
+
+  // relations
+  universityId Int
+  university   University @relation(fields: [universityId], references: [id])
+
+  createdById Int
+  createdBy   User @relation("EventCreator", fields: [createdById], references: [id])
+
+  registrations Registration[]
+}
+
+enum EventStatus {
+  ACTIVE
+  CANCELLED
+  COMPLETED
+}
+
+
+// Registrations
+model Registration {
+  id        Int   @id @default(autoincrement())
+  attendance Boolean @default(false)
+  feedback   Int? // 1-5, nullable if no feedback
+
+  // relations
+  eventId Int
+  userId  Int
+
+  event Event @relation(fields: [eventId], references: [id])
+  user  User  @relation(fields: [userId], references: [id])
+
+  @@unique([eventId, userId]) // prevent duplicate registration
+}

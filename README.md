@@ -26,7 +26,9 @@ npm run dev
 ```
 - Open browser and go to URL <a href="https://localhost:3000/">https://localhost:3000/</a>
 
-**Note:** The project can be locally hosted as it is using SQLlite which doesn't go well with vercel hosting, for hosting it on vercel or any other service we'll have to switch to postgreSQL or a similar alternative.
-**Note:** As it is SQLlite the data is passed with the codebase, so there are no concerns about hosting database either (prevents clever-cloud or mongodb compass response delay).
+_**Note:** The project can be locally hosted as it is using SQLite which doesn't go well with vercel hosting, for hosting it on vercel or any other service we'll have to switch to postgreSQL or a similar alternative._
+<br>
+
+_**Note:** As it is SQLite the data is passed with the codebase, so there are no concerns about hosting database either (prevents clever-cloud or mongodb compass response delay)._
 
 ## DB Approach
