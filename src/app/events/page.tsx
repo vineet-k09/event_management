@@ -97,7 +97,7 @@ export default function EventsPage() {
                                 {new Date(e.date).toLocaleString()}
                             </p>
 
-                            {statusText !== "Not Registered" && (
+                            {user !== null && statusText !== "Not Registered" && (
                                 <p className="mt-2 font-medium">
                                     Status: <span className={statusClass}>{statusText}</span>
                                 </p>

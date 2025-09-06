@@ -68,6 +68,7 @@ export default function CreateEventPage() {
                     className="w-full p-2 border rounded"
                     required
                 />
+                <p>University: {unis.find(u => u.id === user.universityId)?.name}</p>
                 <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">
                     Create Event
                 </button>
@@ -76,3 +77,106 @@ export default function CreateEventPage() {
         </div>
     );
 }
+
+export const unis = [
+    {
+        "id": 1,
+        "name": "IIT Bombay",
+        "location": "Mumbai"
+    },
+    {
+        "id": 2,
+        "name": "IIT Delhi",
+        "location": "Delhi"
+    },
+    {
+        "id": 3,
+        "name": "IIT Madras",
+        "location": "Chennai"
+    },
+    {
+        "id": 4,
+        "name": "IIT Kanpur",
+        "location": "Kanpur"
+    },
+    {
+        "id": 5,
+        "name": "IIT Kharagpur",
+        "location": "Kharagpur"
+    },
+    {
+        "id": 6,
+        "name": "IIT Roorkee",
+        "location": "Roorkee"
+    },
+    {
+        "id": 7,
+        "name": "IIT Guwahati",
+        "location": "Guwahati"
+    },
+    {
+        "id": 8,
+        "name": "IIT Hyderabad",
+        "location": "Hyderabad"
+    },
+    {
+        "id": 9,
+        "name": "IIT Bhubaneswar",
+        "location": "Bhubaneswar"
+    },
+    {
+        "id": 10,
+        "name": "IIT Patna",
+        "location": "Patna"
+    },
+    {
+        "id": 11,
+        "name": "IIT Ropar",
+        "location": "Ropar"
+    },
+    {
+        "id": 12,
+        "name": "IIT Jodhpur",
+        "location": "Jodhpur"
+    },
+    {
+        "id": 13,
+        "name": "IIT Indore",
+        "location": "Indore"
+    },
+    {
+        "id": 14,
+        "name": "IIT Mandi",
+        "location": "Mandi"
+    },
+    {
+        "id": 15,
+        "name": "IIT Varanasi",
+        "location": "Varanasi"
+    },
+    {
+        "id": 16,
+        "name": "IIT Palakkad",
+        "location": "Palakkad"
+    },
+    {
+        "id": 17,
+        "name": "IIT Tirupati",
+        "location": "Tirupati"
+    },
+    {
+        "id": 18,
+        "name": "IIT Bhilai",
+        "location": "Bhilai"
+    },
+    {
+        "id": 19,
+        "name": "IIT Goa",
+        "location": "Goa"
+    },
+    {
+        "id": 20,
+        "name": "IIT Jammu",
+        "location": "Jammu"
+    }
+]
