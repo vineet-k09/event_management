@@ -79,6 +79,11 @@ export default function LoginPage() {
                         {JSON.stringify(user, null, 2)}
                     </pre>
                 )}
+            <div className="text-start flex flex-col">
+                Working credentials -
+                <p>Name: <code>Rahul Singh</code></p>
+                <p>Email: <code>rahul@gmail.com</code></p>
+            </div>
             </form>
         </div>
     );

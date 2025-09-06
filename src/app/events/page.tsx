@@ -61,7 +61,7 @@ export default function EventsPage() {
     return (
         <div className="p-8 space-y-4">
             <h1 className="text-2xl font-bold">Events</h1>
-            <div className="md:columns-3 columns-2">
+            <div className="md:columns-4 columns-2">
                 {events.map((e) => {
                     const eventStatus = user && regs ? getEventStatus(e, regs, user.id) : "";
 

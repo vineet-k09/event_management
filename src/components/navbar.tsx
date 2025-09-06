@@ -8,11 +8,10 @@ export default function Navbar() {
         <nav className="flex flex-row justify-between px-3 border-b-1">
             <div className="p-4">Event Organizer</div>
             <div className="mx-auto my-auto hover:scale-[1.2] duration-100">
-                {user?.role === "ADMIN" ? <Link href="/events/create" className="rounded-md p-1 border-2 px-2 hover:bg-blue-950">Create Event</Link> : null}
+                {user?.role === "ADMIN" ? <Link href="/events/create" className="rounded-md p-1 border-2 px-2 hover:bg-blue-950">Create Event</Link> : <p className="rounded-md p-1 border-2 px-2 ">Login to see featuers</p>}
             </div>
             <ul className="flex flex-row gap-2 p-3 [&>li]:duration-100 [&>li]:border-[0.5] [&>li]:p-1 [&>li]:rounded-md [&>li]:hover:bg-blue-950 [&>li]:hover:scale-[1.1]">
                 <li><Link href='/'>Home</Link></li>
-                <li><Link href='/university'>Universities</Link></li>
                 <li><Link href='/events'>Events</Link></li>
                 {user !== null &&
                     <li><button onClick={logout}>Logout</button></li>
