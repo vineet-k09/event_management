@@ -112,7 +112,7 @@ export default function EventsPage() {
                                 </button>
                             )}
                             {user?.role === "ADMIN" && <div className="mt-2">
-                                <Link href={`events/attendees/${e.id}/`} className="border-2 p-2 rounded-md hover:bg-blue-950 duration-100">Attendees</Link>
+                                <Link href={`events/attendees/${e.id}/`} className="border-2 p-2 rounded-md hover:bg-blue-950 duration-100">Attendance</Link>
                             </div>}
                         </div>
                     );

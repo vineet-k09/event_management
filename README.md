@@ -38,7 +38,7 @@ _**Note:** The project can be locally hosted as it is using SQLite which doesn't
 _**Note:** As it is SQLite the data is passed with the codebase, so there are no concerns about hosting database either (prevents clever-cloud or mongodb compass response delay)._
 
 ## DB Approach
-<img src="1.png" alt="schema" />
+<img src="screenshots/1.png" alt="schema" />
 
 1. The approach was quite straight forward, with main goal to have one user to belong to atleast one university, and by default they will create events for that university
 2. university --> user (1-n) --> events (1-n) --> registrations (1-n)
@@ -69,3 +69,62 @@ export async function POST(req: Request){
 ```
 _**Note:** prisma here refers to the ```PrismaClient``` for quering during dev._
 
+To populate the data simple API ```(/api/populate/)``` were used along with postman
+<img src="screenshots/2.png" alt="postmanPNG" />
+
+---
+
+## Frontend
+
+### Events
+<img src="screenshots/3.png" alt="events"/>
+<img src="screenshots/4.png" alt="events"/>
+Event had this following type - 
+
+```ts
+type Event = {
+    id: number;
+    title: string;
+    description: string;
+    date: string;
+    status: string;
+    university: {
+        name: string;
+    };
+};
+```
+While rest of the university and the event owner fields were avoided as they were not required to be shown. (Although they were sent throught the response).
+
+The main logic of Event page relied on the ```getEventStatus(event: Event, regs: any[], userId: number)``` function
+Conditionally the following situations were portrayed - 
+- If registered -> Present/Absent
+- If not registered -> render Register button
+- If not registered -> post event date already -> Registration Over
+
+***IMPORTANT:*** The ```user.role = "ADMIN"``` was used as the deciding factor if the user can change attendance or not, thus every event, irrespective of user specific university can be changed by the user. 
+### The above is not an ideal method, instead the ```user.id``` is matched with ```event.user.id``` to conditionally allow managing attendance
+
+### Attendance
+<img src="screenshots/5.png" alt="attendecce" />
+
+This page mainly uses POST methods mapped with ```registration.user.id``` each registration has attendance column with boolean value for Present(True) and Absent(False)
+
+```ts
+const params = useParams();
+const eventId = params.id;
+```
+The above let's us use the ```attendees/[id]/page.tsx``` browser route, allowing us to dynamically change the content of the page based on the event id passed
+***Note:*** This, along with many other, page are ```user.id``` and ```user.role``` specific while its not asserted in this application, it's necessary to take care of loose ends, preventing user from accessing open end points.
+
+## IMPORTANT
+- ### ```.env``` is uploaded for the sole purpose of functionality, as the website is not going to be deployed.
+- ### Make sure to download ```node_modules``` using 
+```bash
+npm run i
+```
+### or the app won't run. (Look for Module not found error).
+- ### In case of database error, check the [DB.md](prisma/DB.md) here.
+
+---
+
+&#123;&#125; with ♡ by <a href="https://github.com/vineet-k09">Vineet</a>.
