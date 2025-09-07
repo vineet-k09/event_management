@@ -1,5 +1,8 @@
 # Campus Event Organizer 
 
+***Note:*** In order to see the ```development process``` through generative LLM (ChatGPT) please follow this [link.](CHATGPT.md) <br />
+The following content focuses mainly on the application.
+
 ## The techstack
 
 | Layer        | Technology                 | Purpose                                                                 |
